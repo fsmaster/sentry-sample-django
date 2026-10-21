@@ -71,6 +71,9 @@ you are ok to store that in Sentry.
 `/trigger` view is only for the playground dashboard: it runs the same crash but adds a `run_id` tag and
 fingerprint, so each button click is new issue.
 
+`/trigger` also takes an optional `"dsn"` in the body. The playground sends it when a visitor checks
+**Use my DSN**, then only this one event goes to their project (a separate client, the global one is untouched).
+
 ## Production
 
 The Dockerfile runs it with gunicorn. Workflow `.github/workflows/image.yml` builds the image, pushes it
